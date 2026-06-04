@@ -18,7 +18,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
     final transactions = TransactionRepository.transactions;
 
     return MainLayout(
-        showFloatingActionButton: true,
+      showFloatingActionButton: true,
       fabTitle: "Add Expense",
       appBar: FinTrackAppBar(
         title: "FinTrack",
@@ -29,11 +29,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       showDefaultBottom: true,
       ctx: 2,
       body: Padding(
-         padding: const EdgeInsets.only(left: 16, right: 16),
+        padding: const EdgeInsets.only(left: 16, right: 16),
         child: Column(
           children: [
             const SizedBox(height: 10),
-        
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -43,7 +43,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     "All Transactions",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-        
+
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -64,9 +64,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 ],
               ),
             ),
-        
+
             const SizedBox(height: 10),
-        
+
             Expanded(
               child: ListView.separated(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -74,7 +74,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 separatorBuilder: (_, __) => const Divider(),
                 itemBuilder: (context, index) {
                   final transaction = transactions[index];
-        
+
                   return TransactionTile(transaction: transaction);
                 },
               ),
@@ -135,16 +135,16 @@ class TransactionTile extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (_) => TransactionDetailsScreen(
-        transaction: transaction,
-      ),
-    ),
-  );
-},
+        print("Tapped on ${transaction.title}");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => TransactionDetailsScreen(transaction: transaction),
+          ),
+        );
+      },
       child: Container(
+        color: Colors.white,
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Row(
           children: [
@@ -153,9 +153,9 @@ class TransactionTile extends StatelessWidget {
               backgroundColor: color.withOpacity(.15),
               child: Icon(getCategoryIcon(), color: color),
             ),
-      
+
             const SizedBox(width: 12),
-      
+
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,16 +167,16 @@ class TransactionTile extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-      
+
                   const SizedBox(height: 4),
-      
+
                   Text(
                     transaction.category,
                     style: TextStyle(color: Colors.grey[600]),
                   ),
-      
+
                   const SizedBox(height: 2),
-      
+
                   Text(
                     transaction.date.split('T').first,
                     style: TextStyle(color: Colors.grey[500], fontSize: 12),
@@ -184,7 +184,7 @@ class TransactionTile extends StatelessWidget {
                 ],
               ),
             ),
-      
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -196,9 +196,9 @@ class TransactionTile extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-      
+
                 const SizedBox(height: 4),
-      
+
                 if (transaction.note.isNotEmpty)
                   SizedBox(
                     width: 100,

@@ -226,8 +226,8 @@ class TransactionSection extends StatelessWidget {
           separatorBuilder: (_, __) => const Divider(),
           itemBuilder: (_, index) {
             final transaction = recentTransactions[index];
-            return GestureDetector(
-                    onTap: () {
+            return ListTile(
+              onTap: () {
   Navigator.push(
     context,
     MaterialPageRoute(
@@ -237,20 +237,18 @@ class TransactionSection extends StatelessWidget {
     ),
   );
 },
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.orange.shade50,
-                  child: const Icon(Icons.shopping_bag),
-                ),
-              
-                title: Text(transaction.title),
-              
-                subtitle: Text("${transaction.category} • ${transaction.date}"),
-              
-                trailing: Text(
-                  "- ₹${transaction.amount}",
-                  style: const TextStyle(color: Colors.red),
-                ),
+              leading: CircleAvatar(
+                backgroundColor: Colors.orange.shade50,
+                child: const Icon(Icons.shopping_bag),
+              ),
+
+              title: Text(transaction.title),
+
+              subtitle: Text("${transaction.category} • ${transaction.date}"),
+
+              trailing: Text(
+                "- ₹${transaction.amount}",
+                style: const TextStyle(color: Colors.red),
               ),
             );
           },
