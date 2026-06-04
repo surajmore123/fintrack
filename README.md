@@ -49,3 +49,29 @@ Specifically, it was used for:
 All Flutter implementation, project architecture, widget composition, routing, state handling, screen integration, and application logic were manually developed and integrated by the developer.
 
 AI tools were used to assist with design ideation, code suggestions, and development guidance, while the final implementation, customization, debugging, and integration were completed manually.
+
+## Screenshots
+
+### Home Screen
+
+![Home Screen](screenshots/home_screen.png)
+
+### Add Expense
+
+![Add Expense](screenshots/add_expense.png)
+
+### Transactions
+
+![Transactions](screenshots/transactions.png)
+
+### Transaction Details
+
+![Transaction Details](screenshots/transaction_details.png)
+
+### Trend Screen
+
+![Trend Screen](screenshots/trend_screen.png)
+
+### Profile Screen
+
+![Profile Screen](screenshots/profile_screen.png)
